@@ -302,7 +302,7 @@ class AjaxController extends Controller
         }
 
         $elements->orderby("cms_uploads.created_at", "desc");
-        $elements = $elements->get();
+        $elements = $elements->get(['cms_users.name AS user_name', 'cms_uploads.*']);
 
         $menu_elements = [];
         if (count($elements) >= 0) {
@@ -311,7 +311,7 @@ class AjaxController extends Controller
                 $img->original = $element->preview_url;
                 $img->thumbnail = $element->preview_url;
                 $img->remark = $element->remark;
-                $img->username = $element->name;
+                $img->sharedBy = $element->user_name;
                 $img->created_at = $element->created_at;
                 array_push($menu_elements, $img);
             }
