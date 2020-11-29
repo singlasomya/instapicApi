@@ -1,4 +1,4 @@
-Before Staet please install 
+Before start please sure you have
 1) php 
 2) composer
 
